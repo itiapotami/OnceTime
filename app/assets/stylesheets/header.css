@@ -27,24 +27,50 @@
 
 .hotel-posting {
   text-decoration: none;
-  background-color: #fff;
+  font-weight: bold;
+  border:solid 3px #fff;
+  font-family:Arial, Helvetica, sans-serif;
   margin: 10px;
+  padding: 20px;
+  color: #fff;
+}
+
+.user-nickname {
+  text-decoration: none;
+  font-weight: bold;
+  border:solid 3px #fff;
+  font-family:Arial, Helvetica, sans-serif;
+  margin: 10px;
+  padding: 20px;
+  color: #fff;
 }
 
 .login {
   text-decoration: none;
-  background-color: #fff;
+  font-weight: bold;
+  border:solid 3px #fff;
+  font-family:Arial, Helvetica, sans-serif;
   margin: 10px;
+  padding: 20px;
+  color: #fff;
 }
 
 .sign-up {
   text-decoration: none;
-  background-color: #fff;
+  font-weight: bold;
+  border:solid 3px #fff;
+  font-family:Arial, Helvetica, sans-serif;
   margin: 10px;
+  padding: 20px;
+  color: #fff;
 }
 
 .logout {
   text-decoration: none;
-  background-color: #fff;
-  margin: 10px;
+  font-weight: bold;
+  border:solid 3px #fff;
+  font-family:Arial, Helvetica, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  color: #fff;
 }
