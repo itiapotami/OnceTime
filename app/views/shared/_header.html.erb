@@ -5,7 +5,7 @@
     </ul>
     <ul class='lists-right'>
       <% if owner_signed_in? %>
-        <li><%= link_to current_user.nickname, root_path, class: "user-nickname" %></li>
+        <li><%= link_to  current_user.nickname, root_path, class: "user-nickname" %></li>
         <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete, class: "logout" %></li>
       <% else %>
       <%# パスを指定する%>
