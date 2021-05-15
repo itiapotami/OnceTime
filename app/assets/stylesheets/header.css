@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  width: 100vw;
+  padding: 2vh 15vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #3498DB;
+}
+
+.header-contens {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.oncetime-icon {
+  width: 10vw;
+  margin-right: 10vw;
+}
+
+.lists-right {
+  display: flex;
+}
+
+.hotel-posting {
+  text-decoration: none;
+  background-color: #fff;
+  margin: 10px;
+}
+
+.login {
+  text-decoration: none;
+  background-color: #fff;
+  margin: 10px;
+}
+
+.sign-up {
+  text-decoration: none;
+  background-color: #fff;
+  margin: 10px;
+}
+
+.logout {
+  text-decoration: none;
+  background-color: #fff;
+  margin: 10px;
+}
