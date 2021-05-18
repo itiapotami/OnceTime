@@ -1,0 +1,47 @@
+.hotel-main-contents {
+  width: 100vw;
+  height: 30vh;
+  background-color: #3498DB;
+  display: flex;
+  justify-content: space-around;
+}
+
+.hotel-text-contents {
+  width: 50%;
+  height: 100%;
+  background-color: #3498DB;
+}
+
+.hotel-guide-text {
+  font-size: 70px;
+  color: #fff;
+}
+
+.hotel-post-contents {
+  width: 25%;
+  height: 90%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hotel-post-text {
+  color: #3498DB;
+  font-size: 25px;
+}
+
+
+
+.posting-text {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  border:solid 3px #fff;
+  font-family:Arial, Helvetica, sans-serif;
+  margin: 20px;
+  padding: 30px 80px;
+  color: #fff;
+  background-color: #3498DB;
+}
