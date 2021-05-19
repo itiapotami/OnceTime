@@ -8,8 +8,6 @@ class CreateHotels < ActiveRecord::Migration[6.0]
       t.string       :city,             null: false
       t.string       :house_number,    null: false
       t.string       :building_number
-      t.string       :phone_number,    null: false
-      t.string       :email,           null: false
       t.timestamps
     end
   end
