@@ -8,6 +8,7 @@ class CreateHotels < ActiveRecord::Migration[6.0]
       t.string       :city,             null: false
       t.string       :house_number,    null: false
       t.string       :building_number
+      t.references   :owner,            foreign_key: true
       t.timestamps
     end
   end
