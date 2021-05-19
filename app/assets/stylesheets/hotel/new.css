@@ -49,6 +49,12 @@
 .weight-bold-text {
   color: #3498DB;
   font-size: 20px;
+  margin-top: 2vh;
+}
+
+.select-box {
+  width: 50%;
+  height: 30px;
 }
 
 .registration-button {
