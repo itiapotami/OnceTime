@@ -1,0 +1,73 @@
+.hotel-post-contents {
+  display: flex;
+  justify-content: left;
+}
+
+.hotel-left-contents {
+  width: 60vw;
+  margin-left: auto;
+}
+
+.hotel-post-main {
+  width: 60vw;
+  margin: 50px 0px 0px 120px;
+}
+
+.hotel-post-title {
+  color: #3498DB;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.new-hotel {
+  padding: 2vh 0;
+}
+
+.hotel-name-text {
+  width: 80%;
+  height: 40px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
+.hotel-text {
+  width: 80%;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
+.hotel-right-contents {
+  width: calc(100vw - 40%);
+}
+
+.weight-bold-text {
+  color: #3498DB;
+  font-size: 20px;
+  margin-top: 2vh;
+}
+
+.select-box {
+  width: 50%;
+  height: 30px;
+}
+
+.registration-button {
+  width: 50%;
+  margin: 20px 110px;
+}
+
+.registration-blue-button {
+  width: 100%;
+  background: #3498DB;
+  border: 1px solid #3498DB;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
