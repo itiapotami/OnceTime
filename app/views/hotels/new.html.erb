@@ -8,7 +8,7 @@
       <div class="weight-bold-text">
         宿泊施設名
       </div>
-      <%= f.text_field :item_name, class:"hotel-name-text", id:"hotel-name", placeholder:"宿泊施設の名前", maxlength:"40" %>
+      <%= f.text_field :hotel_name, class:"hotel-name-text", id:"hotel-name", placeholder:"宿泊施設の名前", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
           ホテルの説明
@@ -23,7 +23,7 @@
         <div class="weight-bold-text">
         都道府県
         </div>
-        <%#= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
         <div class="weight-bold-text">
         市区町村
         </div>
@@ -37,9 +37,9 @@
         </div>
         <%= f.text_field :building_number, class:"hotel-text", id:"building_number", placeholder:"例）蒼ビル203" %>
         <div class="weight-bold-text">
-        ホテル画像
+        ホテルトップ画像
         </div>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :image, id:"hotel-image" %>
         <div class='registration-button'>
         <%= f.submit "登録" ,class:"registration-blue-button" %>
         </div>
