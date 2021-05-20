@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   }
   
   root to: 'reservations#index'
-  resources :hotels, only: [:index, :new, :create]
+  resources :hotels, only: [:index, :new, :create, :show]
 end
