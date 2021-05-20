@@ -22,7 +22,7 @@
       <ul class='hotel-lists'>
         <% @hotels.each do |hotel| %>
           <li class='list'>
-            <%= link_to '#'  do %>
+            <%= link_to hotel_path(hotel.id)  do %>
               <div class='list-side'>
                 <div class='hotel-img-content'>
                   <%= image_tag hotel.image, class: 'hotel-img' %>
@@ -33,7 +33,7 @@
                     <%= hotel.hotel_name %>
                   </h3>
                   <div class='hotel-description'>
-                    <%= hotel.description %>
+                    <%= hotel.description.truncate(150) %>
                   </div>                  
                 </div>
               </div>

@@ -1,0 +1,45 @@
+<%=render 'shared/second-header' %>
+
+<div class='show-main-contents'>
+  <div class='show-left-contents'>
+    <div class='show-name-contents'>
+      <h3 class='show-name'>
+        <%= @hotel.hotel_name %>
+      </h3>
+    </div>
+    <div class='show-image-contents'>
+      <%= image_tag @hotel.image, class: 'hotel-image' %>
+    </div>
+    <div class='show-description-contents'>
+      <%= @hotel.description %>
+    </div>
+    <div class='show-address-contents'>
+      <h2 class='address-guid-contents'>
+      所在地
+      </h2>
+      <div class='postal-code-contents'>
+      <%= @hotel.postal_code %>
+      </div>
+      <div class='address-contents'>
+      <%= "#{@hotel.prefecture.name}#{@hotel.city}#{@hotel.house_number}#{@hotel.building_number}" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class='show-light-contents'>
+    <h3 class='add-edit-guid-text'>
+      こちらから<p>お部屋の追加と編集ができます</p>
+    </h3>
+    <div class='add-edit-contents'>
+      <div class='add-edit-btns'>
+      <%= link_to "部屋を追加する", '#', class: 'add-edit-btn' %>
+      </div>
+      <div class='add-edit-btns'>
+      <%= link_to "ホテル情報編集" , '#', class: 'add-edit-btn'%>
+      </div>
+      <div class='add-edit-btns'>
+      <%= link_to "部屋情報の編集", '#', class: 'add-edit-btn' %>
+      </div>
+    </div>
+  </div>
+</div>
