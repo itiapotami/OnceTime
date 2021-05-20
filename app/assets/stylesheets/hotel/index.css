@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .hotel-main-contents {
   width: 100vw;
   height: 30vh;
@@ -44,4 +48,52 @@
   padding: 30px 80px;
   color: #fff;
   background-color: #3498DB;
+}
+
+.hotel-list-contents {
+  width: 100vw;
+  height: 100vh;
+}
+
+.hotel-lists {
+  width: 90vw;
+  height: 100vh;
+  margin-left: 20px;
+}
+
+.list-side {
+  display: flex;
+}
+
+
+.list {
+  height: 220px;
+  padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 2px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+  
+}
+
+
+.hotel-img {
+  width: 300px;
+  height: 200px;
+  border-radius: 16px;
+}
+.hotel-info {
+  margin: 0px 30px;
+}
+
+.hotel-name {
+  font-size: 36px;
+  color: rgb(113, 113, 113);
+}
+
+.hotel-description {
+  margin-top: 20px;
+  color: rgb(113, 113, 113) ;
 }
