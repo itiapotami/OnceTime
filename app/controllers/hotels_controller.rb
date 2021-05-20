@@ -1,6 +1,6 @@
 class HotelsController < ApplicationController
   def index
-
+    @hotels = Hotel.where(owner_id: current_owner.id) if owner_signed_in?
   end
 
   def new
@@ -17,7 +17,9 @@ class HotelsController < ApplicationController
   end
 
   private
+
   def hotel_params
-    params.require(:hotel).permit(:hotel_name, :description, :postal_code, :prefecture_id, :city, :house_number, :building_number, :image).merge(owner_id: current_owner.id)
+    params.require(:hotel).permit(:hotel_name, :description, :postal_code, :prefecture_id, :city, :house_number,
+                                  :building_number, :image).merge(owner_id: current_owner.id)
   end
 end

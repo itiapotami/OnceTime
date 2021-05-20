@@ -14,8 +14,34 @@
       <h1 class='hotel-post-text'>
       掲載はこちらから
       </h1>
-      <%= link_to '掲載する', '#', class: "posting-text" %></li>
+      <%= link_to '掲載する', new_hotel_path, class: "posting-text" %></li>
     </div>
   </div>
+  <% if owner_signed_in? %>
+    <div class='hotel-list-contents'>
+      <ul class='hotel-lists'>
+        <% @hotels.each do |hotel| %>
+          <li class='list'>
+            <%= link_to '#'  do %>
+              <div class='list-side'>
+                <div class='hotel-img-content'>
+                  <%= image_tag hotel.image, class: 'hotel-img' %>
+                </div>
+
+                <div class='hotel-info'>
+                  <h3 class='hotel-name'>
+                    <%= hotel.hotel_name %>
+                  </h3>
+                  <div class='hotel-description'>
+                    <%= hotel.description %>
+                  </div>                  
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
 
