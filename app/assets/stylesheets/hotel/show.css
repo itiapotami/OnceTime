@@ -1,0 +1,76 @@
+.show-main-contents {
+  display: flex;
+  border-top: 30px solid #fff;
+
+}
+
+.show-left-contents {
+  width: 60vw;
+  height: 100vh;
+  margin: 30px;
+}
+
+.show-name-contents {
+  margin: 20px 0px;
+}
+
+.show-name {
+  font-size: 36px;
+  color: rgb(113, 113, 113);
+}
+
+.hotel-image {
+  width: 600px;
+  height: 350px;
+}
+
+.show-description-contents {
+  width: 70%;
+  margin: 20px 0px;
+  color: rgb(113, 113, 113);
+  border-top: 2px solid #3498DB;
+}
+
+.show-address-contents {
+  width: 70%;
+  border-top: 2px solid #3498DB;
+}
+
+
+/* 右側のコンテンツ */
+.show-light-contents {
+  background-color: #3498DB;
+  width: 40vw;
+}
+
+.add-edit-guid-text {
+  font-size: 38px;
+  color: #fff;
+  margin: 30px 0px 0px 10px;
+}
+
+.add-edit-contents {
+  width: 50%;
+  height: 50%;
+  margin: 40px auto;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.add-edit-btns {
+  width: 60%;
+  height: 70px;
+  background-color: #3498DB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.add-edit-btn {
+  color: #fff;
+  font-size: larger;
+}
