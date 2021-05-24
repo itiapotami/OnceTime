@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_23_092618) do
+ActiveRecord::Schema.define(version: 2021_05_22_062856) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -76,15 +76,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_092618) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "room_facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "room_id"
-    t.bigint "facility_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["facility_id"], name: "index_room_facilities_on_facility_id"
-    t.index ["room_id"], name: "index_room_facilities_on_room_id"
-  end
-
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "room_name", null: false
     t.string "capacity", null: false
@@ -110,7 +101,5 @@ ActiveRecord::Schema.define(version: 2021_05_23_092618) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "hotels", "owners"
-  add_foreign_key "room_facilities", "facilities"
-  add_foreign_key "room_facilities", "rooms"
   add_foreign_key "rooms", "hotels"
 end
