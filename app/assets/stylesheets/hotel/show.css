@@ -74,3 +74,15 @@
   color: #fff;
   font-size: larger;
 }
+
+.room_capacity-contents {
+  margin: 40px;
+  font-size: 20px;
+  color: rgb(113, 113, 113);
+}
+
+.room-price {
+  font-size: 30px;
+  margin: 40px;
+  color: rgb(113, 113, 113);
+}

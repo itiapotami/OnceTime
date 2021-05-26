@@ -32,7 +32,7 @@
     </h3>
     <div class='add-edit-contents'>
       <div class='add-edit-btns'>
-      <%= link_to "部屋を追加する", '#', class: 'add-edit-btn' %>
+      <%= link_to "部屋を追加する", new_hotel_room_path(@hotel.id), class: 'add-edit-btn' %>
       </div>
       <div class='add-edit-btns'>
       <%= link_to "ホテル情報編集" , '#', class: 'add-edit-btn'%>
@@ -42,4 +42,35 @@
       </div>
     </div>
   </div>
+</div>
+<div class='catalog-main-contents'>
+  <h2 class='hotel-post-title'>部屋一覧</h2>
+  <div class='room-list-contents'>
+      <ul class='room-lists'>
+        <% @rooms.each do |room| %>
+          <li class='list'>
+            <%= link_to '#' do %>
+              <div class='list-side'>
+                <div class='hotel-img-content'>
+                  <%= image_tag room.image, class: 'hotel-img' %>
+                </div>
+
+                <div class='room-info'>
+                  <h3 class='hotel-name'>
+                    <%= room.room_name %>
+                  </h3>
+                  <div class='room_capacity-contents'>
+                    定員<%= room.capacity %>名
+                  </div>
+                  <div class='room-price'>
+                    <%= room.price %>円
+                  </div>
+                </div>
+                
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 </div>
