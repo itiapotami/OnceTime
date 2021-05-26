@@ -18,6 +18,7 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find(params[:id])
+    @rooms = Room.where(hotel_id: @hotel.id)
   end
 
   private
