@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリ名 oncetime
 
-Things you may want to cover:
+# テーブル設計
 
-* Ruby version
+## users テーブル
 
-* System dependencies
+| Column               | Type   | Options                  |
+| --------             | ------ | ------------------------ |
+| nickname             | string | null: false              |
+| email                | string | null: false  unique:true |
+| encrypted_password   | string | null: false              |
 
-* Configuration
 
-* Database creation
+## owners テーブル
 
-* Database initialization
+| Column               | Type   | Options                  |
+| --------             | ------ | ------------------------ |
+| nickname             | string | null: false              |
+| email                | string | null: false  unique:true |
+| encrypted_password   | string | null: false              |
+| last_name            | string | null: false              |
+| first_name           | string | null: false              |
+| last_kana            | string | null: false              |
+| first_kana           | string | null: false              |
+| phone_number         | string | bull: false              |
 
-* How to run the test suite
+## hotels テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column               | Type   | Options                  |
+| --------             | ------ | ------------------------ |
+| hotel_name           | string | null: false              |
+| description          | string | null: false  unique:true |
+| encrypted_password   | string | null: false              |
+| last_name            | string | null: false              |
+| first_name           | string | null: false              |
+| last_kana            | string | null: false              |
+| first_kana           | string | null: false              |
+| phone_number         | string | bull: false              |
 
-* Deployment instructions
 
-* ...
