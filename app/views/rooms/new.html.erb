@@ -24,9 +24,13 @@
         部屋トップ画像
         </div>
         <%= f.file_field :image, id:"room-image" %>
+        <%#= f.collection_check_boxes :facility_ids, Facility.all, :id, :name, include_hidden: false  do |b| %>
+        <%#= b.label {b.check_box + b.text} %>
+        <%# end %>
         <div class='registration-button'>
-          <%= f.submit "次へ" ,class:"registration-blue-button" %>
+          <%= f.submit "登録" ,class:"registration-blue-button" %>
         </div>
+        
       </div>
     <% end %>
     </div>
