@@ -12,7 +12,30 @@
     </form>
   </div>
   <div class='hotel-contents'>
-  
+    <div class='hotel-list-contents'>
+      <ul class='hotel-lists'>
+        <% @hotels.each do |hotel| %>
+          <li class='list'>
+            <%= link_to hotel_path(hotel.id)  do %>
+              <div class='list-side'>
+                <div class='hotel-img-content'>
+                  <%= image_tag hotel.image, class: 'hotel-img' %>
+                </div>
+
+                <div class='hotel-info'>
+                  <h3 class='hotel-name'>
+                    <%= hotel.hotel_name %>
+                  </h3>
+                  <div class='hotel-description'>
+                    <%= hotel.description.truncate(150) %>
+                  </div>                  
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
 
