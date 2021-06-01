@@ -3,27 +3,27 @@
   justify-content: left;
 }
 
-.hotel-left-contents {
+.form-left-contents {
   width: 60vw;
   margin-left: auto;
 }
 
-.hotel-post-main {
+.form-post-main {
   width: 60vw;
   margin: 50px 0px 0px 120px;
 }
 
-.hotel-post-title {
+.form-post-title {
   color: #3498DB;
   font-size: 32px;
   font-weight: bold;
 }
 
-.new-hotel {
+.new-form {
   padding: 2vh 0;
 }
 
-.hotel-name-text {
+.form-name-text {
   width: 80%;
   height: 40px;
   padding: 10px 16px 8px;
@@ -33,7 +33,7 @@
   resize: none;
 }
 
-.hotel-text {
+.form-text {
   width: 80%;
   padding: 16px 16px 8px;
   border-radius: 4px;
@@ -42,7 +42,7 @@
   resize: none;
 }
 
-.hotel-right-contents {
+.form-right-contents {
   width: calc(100vw - 40%);
 }
 

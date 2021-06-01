@@ -44,29 +44,36 @@
   </div>
 </div>
 <div class='catalog-main-contents'>
-  <h2 class='hotel-post-title'>部屋一覧</h2>
+  <h2 class='room-catalog-title'>部屋一覧</h2>
   <div class='room-list-contents'>
       <ul class='room-lists'>
         <% @rooms.each do |room| %>
           <li class='list'>
             <%= link_to '#' do %>
               <div class='list-side'>
-                <div class='hotel-img-content'>
-                  <%= image_tag room.image, class: 'hotel-img' %>
-                </div>
-
-                <div class='room-info'>
-                  <h3 class='hotel-name'>
-                    <%= room.room_name %>
-                  </h3>
-                  <div class='room_capacity-contents'>
-                    定員<%= room.capacity %>名
-                  </div>
-                  <div class='room-price'>
-                    <%= room.price %>円
+                <div class='list-left'>
+                  <div class='hotel-img-content'>
+                    <%= image_tag room.image, class: 'hotel-img' %>
                   </div>
                 </div>
-                
+                <div class='list-right'>
+                  <div class='room-info'>
+                    <div class='room-name-capacity'>
+                      <div class='room-name-contents'>
+                        <%= room.room_name %>
+                      </div>
+                      <div class='room_capacity-contents'>
+                        定員<%= room.capacity %>名
+                      </div>
+                    </div>
+                    <div class='room-facility'>
+                      <%= room.facilities.pluck(:name).join("  ") %>
+                    </div>
+                    <div class='room-price'>
+                      <%= room.price %>円
+                    </div>
+                  </div>
+                </div>
               </div>
             <% end %>
           </li>

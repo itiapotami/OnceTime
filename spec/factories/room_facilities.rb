@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :room_have do
+  factory :room_facility do
     
   end
 end
