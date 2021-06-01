@@ -1,32 +1,40 @@
 <%# 現在編集中%>
 <div class='hotel-post-contents'>
-  <div class='hotel-left-contents'>
-  <div class='hotel-post-main'>
-  <% if @room.id.blank? %>
-    <h2 class='hotel-post-title'>宿泊施設の登録を始めましょう</h2>
+  <div class='form-left-contents'>
+  <div class='form-post-main'>
+    <h2 class='form-post-title'>お部屋の登録を始めましょう</h2>
     <%= form_with model:[@hotel, @room], url: hotel_rooms_path, local: true do |f| %>
     <%# ホテル名と説明%>
-    <div class="new-hotel">
+    <div class="new-form">
       <div class="weight-bold-text">
         部屋名
       </div>
-      <%= f.text_field :room_name, class:"hotel-name-text", id:"room-name", placeholder:"部屋の名前", maxlength:"40" %>
+      <%= f.text_field :room_name, class:"form-name-text", id:"room-name", placeholder:"部屋の名前", maxlength:"40" %>
       <div class="hotel-information">
         <div class="weight-bold-text">
         定員人数
         </div>
-        <%= f.text_field :capacity, class:"hotel-text", id:"capacity", placeholder:"例）6", maxlength:"2" %>
+        <%= f.text_field :capacity, class:"form-text", id:"capacity", placeholder:"例）6", maxlength:"2" %>
         <div class="weight-bold-text">
         料金
         </div>
-        <%= f.text_field :price, class:"hotel-text", id:"price", placeholder:"例)3000" %>
+        <%= f.text_field :price, class:"form-text", id:"price", placeholder:"例)3000" %>
         <div class="weight-bold-text">
         部屋トップ画像
         </div>
         <%= f.file_field :image, id:"room-image" %>
-        <%#= f.collection_check_boxes :facility_ids, Facility.all, :id, :name, include_hidden: false  do |b| %>
-        <%#= b.label {b.check_box + b.text} %>
-        <%# end %>
+        <div class="weight-bold-text">
+        設備
+        </div>
+        <div class='room-check-box'>
+        <%= f.collection_check_boxes :facility_ids, Facility.all, :id, :name, include_hidden: false do |b|  %>
+  
+          <%= b.check_box class:'check-group' do %>
+          <%= b.check_box + b.text %>
+          <% end %>
+          <%= b.label {b.text} %>
+        <% end %>
+        </div>
         <div class='registration-button'>
           <%= f.submit "登録" ,class:"registration-blue-button" %>
         </div>
@@ -34,8 +42,7 @@
       </div>
     <% end %>
     </div>
-  <% end %>
   </div>
-  <div class='hotel-right-contents'>
+  <div class='form-right-contents'>
   </div>
 </div>
