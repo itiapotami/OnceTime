@@ -36,6 +36,52 @@
   border-top: 2px solid #3498DB;
 }
 
+/* 部屋一覧 */
+.catalog-main-contents {
+  width: 100vw;
+}
+
+.room-catalog-title {
+  color: #3498DB;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.room-list-contents {
+  width: 60%;
+  height: 100%;
+}
+
+.list-right {
+  width: 100%;
+  height: 100%;
+}
+.room-info {
+  width: 100%;
+}
+
+.room-name-capacity {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.room-name-contents {
+  font-size: 2rem;
+}
+
+.room_capacity-contents {
+  font-size: 20px;
+  color: rgb(113, 113, 113);
+}
+
+.room-price {
+  font-size: 30px;
+  margin: 0px;
+  color: rgb(113, 113, 113);
+}
+
 
 /* 右側のコンテンツ */
 .show-light-contents {
@@ -75,14 +121,3 @@
   font-size: larger;
 }
 
-.room_capacity-contents {
-  margin: 40px;
-  font-size: 20px;
-  color: rgb(113, 113, 113);
-}
-
-.room-price {
-  font-size: 30px;
-  margin: 40px;
-  color: rgb(113, 113, 113);
-}
