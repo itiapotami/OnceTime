@@ -1,0 +1,82 @@
+<%=render "shared/header" %>
+<div class='show-main-contents'>
+  <div class='show-left-contents'>
+    <div class='show-name-contents'>
+      <h3 class='show-name'>
+        <%= @hotel.hotel_name %>
+      </h3>
+    </div>
+    <div class='show-image-contents'>
+      <%= image_tag @hotel.image, class: 'hotel-image' %>
+    </div>
+    <div class='show-description-contents'>
+      <%= @hotel.description %>
+    </div>
+    <div class='show-address-contents'>
+      <h2 class='address-guid-contents'>
+      所在地
+      </h2>
+      <div class='postal-code-contents'>
+      <%= @hotel.postal_code %>
+      </div>
+      <div class='address-contents'>
+      <%= "#{@hotel.prefecture.name}#{@hotel.city}#{@hotel.house_number}#{@hotel.building_number}" %>
+      </div>
+    </div>
+  </div>
+
+  <div class='show-light-contents'>
+    <h3 class='add-edit-guid-text'>
+      こちらから<p>宿の周辺情報が見れます</p>
+    </h3>
+    <div class='add-edit-contents'>
+      <div class='add-edit-btns'>
+      <%= link_to "情報ノート", "#", class: 'add-edit-btn' %>
+      </div>
+      <div class='add-edit-btns'>
+      <%= link_to "" , '#', class: 'add-edit-btn'%>
+      </div>
+      <div class='add-edit-btns'>
+      <%= link_to "", '#', class: 'add-edit-btn' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='catalog-main-contents'>
+  <h2 class='room-catalog-title'>部屋一覧</h2>
+  <div class='room-list-contents'>
+      <ul class='room-lists'>
+        <% @rooms.each do |room| %>
+          <li class='list'>
+            <%= link_to '#' do %>
+              <div class='list-side'>
+                <div class='list-left'>
+                  <div class='hotel-img-content'>
+                    <%= image_tag room.image, class: 'hotel-img' %>
+                  </div>
+                </div>
+                <div class='list-right'>
+                  <div class='room-info'>
+                    <div class='room-name-capacity'>
+                      <div class='room-name-contents'>
+                        <%= room.room_name %>
+                      </div>
+                      <div class='room_capacity-contents'>
+                        定員<%= room.capacity %>名
+                      </div>
+                    </div>
+                    <div class='room-facility'>
+                      <%= room.facilities.pluck(:name).join("  ") %>
+                    </div>
+                    <div class='room-price'>
+                      <%= room.price %>円
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</div>

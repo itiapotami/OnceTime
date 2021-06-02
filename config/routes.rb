@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   
-  root to: 'reservations#index'
+  root to: 'user_hotels#index'
+  resources :user_hotels, only: [:index, :show]
   resources :hotels, only: [:index, :new, :create, :show] do
     resources :rooms, only: [:new, :create]
   end
