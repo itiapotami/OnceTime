@@ -48,7 +48,7 @@
       <ul class='room-lists'>
         <% @rooms.each do |room| %>
           <li class='list'>
-            <%= link_to '#' do %>
+            <%= link_to new_reservation_path(id: room.id) do %>
               <div class='list-side'>
                 <div class='list-left'>
                   <div class='hotel-img-content'>
