@@ -1,0 +1,33 @@
+.reservation-contents {
+  width: 100vw;
+  display: flex;
+}
+
+.reservation-left-contents {
+  width: 70%;
+}
+
+.reservation-right-contents {
+  width: 30%;
+  background-color: #3498DB;
+}
+
+.show-facility-contents {
+  font-size: 1.5rem;
+  color: #717171;
+}
+
+
+
+.form-flex {
+  display: flex;
+}
+
+
+
+.form-date-text {
+  color: #3498DB;
+  font-size: 20px;
+  margin-top: 2vh;
+  margin-right: 3vw;
+}
