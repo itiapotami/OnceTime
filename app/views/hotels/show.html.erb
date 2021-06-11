@@ -36,7 +36,7 @@
       <%= link_to "部屋を追加する", new_hotel_room_path(@hotel.id), class: 'add-edit-btn' %>
       </div>
       <div class='add-edit-btns'>
-      <%= link_to "ホテル情報編集" , '#', class: 'add-edit-btn'%>
+      <%= link_to "ホテル情報編集" , edit_hotel_path(@hotel.id), class: 'add-edit-btn'%>
       </div>
       <div class='add-edit-btns'>
       <%= link_to "部屋情報の編集", '#', class: 'add-edit-btn' %>

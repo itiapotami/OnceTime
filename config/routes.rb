@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   
   root to: 'user_hotels#index'
   resources :user_hotels, only: [:index, :show]
-  resources :hotels, only: [:index, :new, :create, :show] do
+  resources :hotels, only: [:index, :new, :create, :show, :edit, :update] do
     resources :rooms, only: [:new, :create]
   end
   resources :reservations, only: [:new, :create]

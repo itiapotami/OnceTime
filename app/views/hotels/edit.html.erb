@@ -1,0 +1,52 @@
+<div class='hotel-post-contents'>
+  <div class='form-left-contents'>
+  <div class='form-post-main'>
+    <h2 class='form-post-title'>宿泊施設の登録を始めましょう</h2>
+    <%= form_with model:@hotel, local: true do |f| %>
+    <%# ホテル名と説明%>
+    <div class="new-form">
+      <div class="weight-bold-text">
+        宿泊施設名
+      </div>
+      <%= f.text_field :hotel_name, class:"form-name-text", id:"hotel-name", placeholder:"宿泊施設の名前", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          ホテルの説明
+        </div>
+        <%= f.text_area :description, class:"form-text", id:"hotel-info", placeholder:"宿泊施設の説明" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <div class="hotel-information">
+        <div class="weight-bold-text">
+        郵便番号
+        </div>
+        <%= f.text_field :postal_code, class:"form-text", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+        <div class="weight-bold-text">
+        都道府県
+        </div>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+        <div class="weight-bold-text">
+        市区町村
+        </div>
+        <%= f.text_field :city, class:"form-text", id:"city", placeholder:"例）東京都足立区" %>
+        <div class="weight-bold-text">
+        番地
+        </div>
+        <%= f.text_field :house_number, class:"form-text", id:"house_number", placeholder:"例）葛飾1-1-1" %>
+        <div class="weight-bold-text">
+        ビル名
+        </div>
+        <%= f.text_field :building_number, class:"form-text", id:"building_number", placeholder:"例）蒼ビル203" %>
+        <div class="weight-bold-text">
+        ホテルトップ画像
+        </div>
+        <%= f.file_field :image, id:"hotel-image" %>
+        <div class='registration-button'>
+        <%= f.submit "登録" ,class:"registration-blue-button" %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <div class='hotel-right-contents'>
+  </div>
+</div>
