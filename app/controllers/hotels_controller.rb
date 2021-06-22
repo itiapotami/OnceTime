@@ -1,4 +1,5 @@
 class HotelsController < ApplicationController
+  before_action :authenticate_owner!, only: [:new, :show, :edit, :update]
   before_action :hotel_get, only: [:show, :edit, :update]
   
   def index
