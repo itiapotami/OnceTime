@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
- 
+  before_action :authenticate_owner!, only: [:new, :create]
   
   def new
       @hotel = Hotel.find(params[:hotel_id])

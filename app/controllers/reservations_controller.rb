@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
 
   def new
     @room = Room.find(params[:id])
