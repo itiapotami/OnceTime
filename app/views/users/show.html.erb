@@ -1,0 +1,32 @@
+<%= render partial: "shared/header" %>
+
+<div class= 'user-info-contents'>
+  <div class= 'user-image-contents'>
+    <% if @user.image? %>
+      <%= image_tag @user.image.url, class: 'user-image' %>
+    <% else %>
+      <%= image_tag "/assets/default.jpg", class: 'user-image' %>
+    <% end %>
+  </div>
+  <div class= 'user-nickname-contents'>
+    <%= @user.nickname %>
+  </div>
+  
+    <%= link_to 'アカウント情報編集', '#', class: 'user-info-edit' %>
+  <div class= 'user-reservation-contents'>
+    <p class='reservation-font'>予約履歴</p>
+    <div class= 'user-reservation'>
+      <% @reservations.each do |reservation| %>
+        <%= link_to hotel_path(reservation.room.hotel.id) do %>
+          <div class= 'user-reservation-info'>
+            <p class='reservation-font'>
+              <%= reservation.start_date %> 〜 <%= reservation.end_date %>
+              　　<%= reservation.room.hotel.hotel_name %>　　<%= reservation.room.room_name %>
+              　　<%= reservation.person %>名
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

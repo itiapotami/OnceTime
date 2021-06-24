@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
   
   root to: 'user_hotels#index'
+  resources :users, only: [:show]
   resources :user_hotels, only: [:index, :show]
   resources :hotels, only: [:index, :new, :create, :show, :edit, :update] do
     resources :rooms, only: [:new, :create]
