@@ -6,6 +6,8 @@ class User < ApplicationRecord
   
   has_many :reservations
 
+  mount_uploader :image, ImageUploader
+
   validates :nickname, presence: true
   validates :password, length: { minimum: 6 }, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/ }
 end
