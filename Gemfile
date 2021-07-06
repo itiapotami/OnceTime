@@ -70,3 +70,7 @@ gem 'active_hash'
 
 gem "aws-sdk-s3", require: false
 gem "fog-aws"
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
