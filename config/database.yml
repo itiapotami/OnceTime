@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: OnceTime_production
-  username: OnceTime
-  password: <%= ENV['ONCETIME_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
