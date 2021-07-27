@@ -1,0 +1,53 @@
+# 初期化手順
+# 以下のコマンドを順番にターミナルで実行していく
+#
+# 基本的なコマンドは記載するが詳しくは公式ガイドラインを参照すること
+#
+# docker-compose down -v
+# docker-compose build --no-cache web
+# docker-compose run --rm web bundle install
+# docker-compose run --rm web yarn install
+# docker-compose run --rm web rails db:migrate:reset
+# docker-compose run --rm web rails db:seed
+# docker-compose up web
+#
+# サーバー起動する時
+# docker-compose up web
+#
+# テスト実行するとき
+# docker-compose run --rm web rails spec
+version: '3'
+services:
+  db:
+    image: mysql:5.5
+    ports:
+      - "3306:3306"
+    volumes:
+      - data:/var/lib/mysql:cached
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  web: &app
+    build: .
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle:cached
+      - node-data:/app/node_modules:cached
+      - /app/.git
+    environment:
+      RAILS_ENV: development
+      BASIC_AUTH_USER: username
+      BASIC_AUTH_PASSWORD: password
+    ports:
+      - "3000:3000"
+    tty: true
+    links:
+      - db
+
+volumes:
+  data:
+    driver: local
+  bundle:
+    driver: local
+  node-data:
+    driver: local
