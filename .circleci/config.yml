@@ -1,0 +1,99 @@
+# CircleCIとの連携
+#
+# 以下の手順で連携する。「config.yml追加」は飛ばして良い。
+# https://qiita.com/tatane616/items/8624e61473a9957d9a81#circleci%E4%B8%8A%E3%81%A7%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%83%93%E3%83%AB%E3%83%89
+#
+# こちらも参考
+# https://github.com/belion-freee/sns_with_rails6/pull/12
+version: 2.1 # Use 2.1 to enable using orbs and other features.
+
+# Declare the orbs that we'll use in our config.
+# read more about orbs: https://circleci.com/docs/2.0/using-orbs/
+orbs:
+  ruby: circleci/ruby@1.0
+  node: circleci/node@2
+
+# initialize
+commands:
+  init:
+    steps:
+      - checkout # pull down our git code.
+      - run:
+          name: install packages # install some packeges for avoid error
+          command: |
+            sudo apt update
+            sudo apt-get install tzdata
+            sudo apt-get install libmariadb-dev
+            sudo apt-get install libmysqlclient-dev
+      - ruby/install-deps # use the ruby orb to install dependencies
+      # use the node orb to install our packages
+      # specifying that we use `yarn` and to cache dependencies with `yarn.lock`
+      # learn more: https://circleci.com/docs/2.0/caching/
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+
+jobs:
+  build: # our first job, named "build"
+    docker:
+      - image: cimg/ruby:2.6.5-node # use a tailored CircleCI docker image.
+    steps:
+      - init
+
+  test:  # our next job, called "test"
+    # we run "parallel job containers" to enable speeding up our tests;
+    # this splits our tests across multiple containers.
+    parallelism: 3
+    # here we set 3 docker images.
+    docker:
+      - image: cimg/ruby:2.6.5-node # this is our primary docker image, where step commands run.
+      - image: circleci/mysql:5.5
+        environment:
+          MYSQL_DATABASE: OnceTime_test
+          MYSQL_ROOT_HOST: '%'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+        name: db
+    # environment variables specific to Ruby/Rails, applied to the primary container.
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      DB_HOST: db
+      DB_USERNAME: root
+      DB_PASSWORD:
+      RAILS_ENV: test
+    # A series of steps to run, some are similar to those in "build".
+    steps:
+      - init
+      # Here we make sure that the secondary container boots
+      # up before we run operations on the database.
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://db:3306 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
+      # Run rspec in parallel
+      - run:
+          name: Run Tests
+          command: |
+            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings) \
+            bundle exec rspec $TESTFILES \
+              --profile 10 \
+              --format RspecJunitFormatter \
+              --out tmp/rspec/results.xml
+      - store_artifacts:
+          # store screenshots for system spec
+          path: tmp/screenshots
+      - store_test_results:
+          # store rspec test result
+          path: tmp/rspec
+
+# We use workflows to orchestrate the jobs that we declared above.
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
