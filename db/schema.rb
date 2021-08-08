@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_102124) do
+ActiveRecord::Schema.define(version: 2021_07_29_080013) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,10 +33,17 @@ ActiveRecord::Schema.define(version: 2021_06_26_102124) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "chat_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "hotel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hotel_id"], name: "index_chat_rooms_on_hotel_id"
+  end
+
   create_table "facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "hotels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,8 +55,8 @@ ActiveRecord::Schema.define(version: 2021_06_26_102124) do
     t.string "house_number", null: false
     t.string "building_number"
     t.bigint "owner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["owner_id"], name: "index_hotels_on_owner_id"
   end
 
@@ -65,8 +72,8 @@ ActiveRecord::Schema.define(version: 2021_06_26_102124) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
   end
@@ -82,8 +89,8 @@ ActiveRecord::Schema.define(version: 2021_06_26_102124) do
     t.string "phone_number", null: false
     t.bigint "room_id"
     t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_reservations_on_room_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
@@ -91,8 +98,8 @@ ActiveRecord::Schema.define(version: 2021_06_26_102124) do
   create_table "room_facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "room_id"
     t.bigint "facility_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["facility_id"], name: "index_room_facilities_on_facility_id"
     t.index ["room_id"], name: "index_room_facilities_on_room_id"
   end
@@ -103,8 +110,8 @@ ActiveRecord::Schema.define(version: 2021_06_26_102124) do
     t.string "price", null: false
     t.bigint "owner_id"
     t.bigint "hotel_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["hotel_id"], name: "index_rooms_on_hotel_id"
     t.index ["owner_id"], name: "index_rooms_on_owner_id"
   end
@@ -116,14 +123,15 @@ ActiveRecord::Schema.define(version: 2021_06_26_102124) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chat_rooms", "hotels"
   add_foreign_key "hotels", "owners"
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "users"
