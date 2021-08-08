@@ -21,7 +21,7 @@ services:
   db:
     image: mysql:5.5
     ports:
-      - "3306:3306"
+      - "4306:3306"
     volumes:
       - data:/var/lib/mysql:cached
     environment:
