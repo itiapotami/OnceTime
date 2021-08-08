@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     resources :rooms, only: [:new, :create]
   end
   resources :reservations, only: [:new, :create]
+  resources :chat_rooms, only: [:show, :create]
 end
