@@ -1,0 +1,9 @@
+@hotel = Hotel.new(hotel_params)
+@hotel
+@hotel.save
+exit
+@hotel.save
+@hotel.save!
+@hotel.save
+@hotel
+exit
