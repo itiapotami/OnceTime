@@ -1,0 +1,3 @@
+class ChatMessageBroadcastJob < ApplicationJob
+  
+end
