@@ -1,1 +1,17 @@
-<p>チャットルーム</p>
+<%= render partial: "shared/header" %>
+<div class= "chat-room">
+<div class= "chat-room-show-page">
+
+  <div id='chat-messages'>
+    <%= render partial: "chat_messages/chat_message",collection: @chat_messages %>
+  </div>
+
+
+  <%= form_with model: @chat_message, url: chat_room_chat_messages_path(@chat_room), class: "form-message" do |f| %> 
+    <%= f.text_field :content, placeholder: "メッセージを入力してください", class: "form-send-message"%>
+    <div class="actions">
+        <%= f.submit '送信', class: "message-send-btn"%> 
+    </div>
+  <% end %> 
+</div>
+</div>
