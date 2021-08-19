@@ -17,7 +17,7 @@
     <p class='reservation-font'>予約履歴</p>
     <div class= 'user-reservation'>
       <% @reservations.each do |reservation| %>
-        <%= link_to hotel_path(reservation.room.hotel.id) do %>
+        <%= link_to user_hotel_path(reservation.room.hotel.id) do %>
           <div class= 'user-reservation-info'>
             <p class='reservation-font'>
               <%= reservation.start_date %> 〜 <%= reservation.end_date %>
