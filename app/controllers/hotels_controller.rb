@@ -39,7 +39,7 @@ class HotelsController < ApplicationController
   private
 
   def hotel_params
-    params.require(:hotel).permit(:hotel_name, :description, :postal_code, :prefecture_id, :city, :house_number,
+    params.require(:hotel).permit(:hotel_name, :description, :country, :postal_code, :prefecture_id, :city, :house_number,
                                   :building_number, :image).merge(owner_id: current_owner.id)
   end
 

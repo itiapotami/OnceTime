@@ -16,12 +16,20 @@
       <h2 class='address-guid-contents'>
       所在地
       </h2>
+      <% unless @hotel.postal_code.nil? %>
       <div class='postal-code-contents'>
       <%= @hotel.postal_code %>
       </div>
+      <% end %>
+      <%if @hotel.prefecture.id == 1 %>
+        <div class='address-contents'>
+          <%= "#{@hotel.country} #{@hotel.city} #{@hotel.house_number} #{@hotel.building_number}" %>
+        </div>
+      <%else%>
       <div class='address-contents'>
-      <%= "#{@hotel.prefecture.name}#{@hotel.city}#{@hotel.house_number}#{@hotel.building_number}" %>
+      <%= "#{@hotel.prefecture.name} #{@hotel.city} #{@hotel.house_number} #{@hotel.building_number}" %>
       </div>
+      <%end%>
     </div>
   </div>
 
