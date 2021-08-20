@@ -18,9 +18,9 @@ basic認証 id: itiapotami  <br>  password: chorrpy
 バックパッカーをしていた際に知り合ったバックパッカーの方々の多くが事件に合いそうになった経験がある事、また自身も事件に巻き込まれた経験がきっかけで当サービスの作成を企画。
 コロナウイルスの影響で現在は海外出国数は減っているがそれ以前は年々出国者数は増加傾向にあった。それに起因するかのように外務省の調べでは海外での邦人援護件数も増加している。
 これらの事実を踏まえ当サービスで宿泊地周辺の治安等様々な情報の共有や観光する際のメンバーの募集などができることで旅行者がより安全に旅行を楽しめたらと思い制作した。
-https://gyazo.com/f0b2ac3d635c847f89a131d97f72e448
+<img width="993" alt="日本人海外出国者数" src="https://user-images.githubusercontent.com/81914211/130200863-af34d900-cd0c-4e72-888c-f9cda8e36167.png">
 
-https://gyazo.com/03ff6ec56848cce20b1ebf25d40b0c2a
+<img width="1124" alt="日本人援護件数" src="https://user-images.githubusercontent.com/81914211/130201013-024b2f50-7446-42c5-a024-f8ad63b07169.png">
 
 
 ## 実装機能（予定も含む）
