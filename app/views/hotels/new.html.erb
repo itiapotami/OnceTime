@@ -17,6 +17,10 @@
       </div>
       <div class="hotel-information">
         <div class="weight-bold-text">
+        国名
+        </div>
+        <%= f.text_field :country, class:"form-text", id:"country", placeholder:"例）Japan" %>
+        <div class="weight-bold-text">
         郵便番号
         </div>
         <%= f.text_field :postal_code, class:"form-text", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
