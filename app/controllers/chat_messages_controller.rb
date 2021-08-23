@@ -3,7 +3,8 @@ class ChatMessagesController < ApplicationController
   def create
     @chat_message = ChatMessage.new(chat_message_params)
     if @chat_message.save
-      redirect_to chat_room_path(id: @chat_message.chat_room_id)
+      ActionCable.server.broadcast 'chat_room_channel', content: @chat_message
+      #redirect_to chat_room_path(id: @chat_message.chat_room_id)
     end
   end
 
