@@ -15,7 +15,8 @@
 
 .chat-messages {
   height: 70vh;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .form-message {
