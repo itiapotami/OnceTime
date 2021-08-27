@@ -12,6 +12,12 @@
   background-color: #ffffff;
 }
 
+
+.chat-messages {
+  height: 70vh;
+  overflow: scroll;
+}
+
 .form-message {
   display: flex;
   flex-direction: column;
