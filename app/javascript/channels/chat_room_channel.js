@@ -55,6 +55,10 @@ consumer.subscriptions.create("ChatRoomChannel", {
     const newMessage = document.getElementById('chat_message_content');
     messages.insertAdjacentHTML('beforeend', html);
     newMessage.value='';
+   
 
+    const chat=document.getElementById("chat-messages");
+     let height=chat.scrollHeight 
+     chat.scrollTop=height;
   }
 });
