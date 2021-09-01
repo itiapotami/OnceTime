@@ -5,11 +5,11 @@
     </ul>
     <ul class='lists-right'>
       <% if owner_signed_in? %>
-        <li><%= link_to  current_owner.nickname, root_path, class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to  current_owner.nickname, root_path, class: "btn-user" %></li>
+        <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete, class: "btn-user" %></li>
       <% else %>
-        <li><%= link_to 'ホテル管理者ログイン', new_owner_session_path, class: "login" %></li>
-        <li><%= link_to 'ホテル管理者新規登録', new_owner_registration_path, class: "sign-up" %></li>
+        <li><%= link_to 'ホテル管理者ログイン', new_owner_session_path, class: "btn-user" %></li>
+        <li><%= link_to 'ホテル管理者新規登録', new_owner_registration_path, class: "btn-user" %></li>
       <% end %>
     </ul>
   </div>

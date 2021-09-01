@@ -50,7 +50,7 @@
   height: 100%;
 }
 .room-list-contents {
-  width: 60%;
+  width: 80%;
   height: 100%;
 }
 
@@ -101,6 +101,7 @@
 .show-light-contents {
   background-color: #3498DB;
   width: 40vw;
+  border-radius: 8px;
 }
 
 .add-edit-guid-text {
@@ -136,3 +137,90 @@
   font-size: larger;
 }
 
+
+/* レスポンシブ */
+@media (max-width:768px) {
+  
+  .hotel-image {
+    width: 200px;
+    height: 132px;
+  }
+
+  .show-description-contents {
+    width: 70%;
+    margin: 10px 0px;
+    color: rgb(113, 113, 113);
+    border-top: 2px solid #3498DB;
+    font-size: 0.7rem;
+  }
+
+  .address-guid-contents {
+    font-size: 20px;
+  }
+
+  .add-edit-guid-text {
+    font-size: 17px;
+    color: #fff;
+    margin: 30px 0px 0px 10px;
+  }
+
+  .add-edit-contents {
+    width: 90%;
+    height: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5%;
+  }
+
+  .add-edit-btns {
+    width: 63%;
+    height: 27%;
+    background-color: #3498DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+  
+
+  .add-edit-btn {
+    color: #fff;
+    font-size: 10px;
+  }
+
+  .room-list-contents {
+    width: 98%;
+    height: 100%;
+  }
+
+  .room-lists {
+    margin-bottom: 8px;
+    padding: 0%;
+  }
+
+  .room-name-contents {
+    font-size: 12px;
+    color: #555;
+    margin-left: 10px;
+  }
+  .room_capacity-contents {
+    font-size: 8px;
+    color: #555;
+  }
+  
+  .room-price {
+    font-size: 16px;
+    margin-left: auto;
+    color: #555;
+  }
+  
+  .room-facility {
+    font-size: 4px;
+    margin-left: 10px;
+    color: #555;
+  }
+}
