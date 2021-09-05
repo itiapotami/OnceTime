@@ -28,12 +28,24 @@ basic認証 id: itiapotami  <br>  password: chorrpy
 
 
 ## 機能一部紹介
+
+# トップページ
+
+<img width="1436" alt="4b2063c55b659ff1709d3058cb1a9f91" src="https://user-images.githubusercontent.com/81914211/132121715-fed9fabb-78f3-4b20-bd4a-97bcd1628358.png">
+
+
+
+
 # 宿泊施設の投稿
 
 https://user-images.githubusercontent.com/81914211/130209853-9fe87a5f-f3c1-404d-9f30-f1c1e76bbff0.mp4
 
+# チャット機能
 
-## 機能一覧（予定も含む）
+https://user-images.githubusercontent.com/81914211/132121485-24bad994-4049-47de-af93-e2d28b2cc8a0.mp4
+
+
+## 機能一覧
 - ユーザー登録、ログイン機能(devise)
 - ユーザー編集機能
   - アイコン画像投稿機能
@@ -44,6 +56,20 @@ https://user-images.githubusercontent.com/81914211/130209853-9fe87a5f-f3c1-404d-
 - 宿泊部屋の投稿機能
 - 宿泊予約機能
 - チャット機能
+  - Actioncableによる非同期通信
+- 一部レスポンシブデザイン対応
+
+- 検索機能は今後実装予定
+
+
+使用言語・技術
+- Ruby2.6.5
+- Ruby on Rails 6.0.0
+- Mysql 5.6
+- AWS
+  - S3
+  - EC2
+- Docker/Docker-compose
 
 
 # テーブル設計
@@ -55,7 +81,11 @@ https://user-images.githubusercontent.com/81914211/130209853-9fe87a5f-f3c1-404d-
 | nickname             | string | null: false              |
 | email                | string | null: false  unique:true |
 | encrypted_password   | string | null: false              |
+| image                | string | null: false              |
 
+### Association
+- has_many :reservations
+- has_many :chat_messages
 
 ## owners テーブル
 
@@ -70,6 +100,10 @@ https://user-images.githubusercontent.com/81914211/130209853-9fe87a5f-f3c1-404d-
 | first_kana           | string | null: false              |
 | phone_number         | string | bull: false              |
 
+### Association
+-has_many :hotels
+-has_many :rooms
+
 ## hotels テーブル
 
 | Column               | Type   | Options                  |
@@ -83,6 +117,13 @@ https://user-images.githubusercontent.com/81914211/130209853-9fe87a5f-f3c1-404d-
 | first_kana           | string | null: false              |
 | phone_number         | string | bull: false              |
 
+### Association
+- belongs_to :prefecture
+- belongs_to :owner
+- has_many   :rooms
+- has_one    :chat_room
+- has_one_attached :image
+
 ## rooms テーブル
 
 | Column               | Type        | Options                  |
@@ -92,6 +133,15 @@ https://user-images.githubusercontent.com/81914211/130209853-9fe87a5f-f3c1-404d-
 | price                | string      | null: false              |
 | hotel                | references  | foreign_key: true        |
 
+### Association
+
+- belongs_to :owner
+- belongs_to :hotel
+- has_many :reservations
+- has_many :room_facilities
+- has_many :facilities, through: :room_facilities, dependent: :destroy
+- has_one_attached :image
+
 
 ## facilities テーブル
 
@@ -99,9 +149,69 @@ https://user-images.githubusercontent.com/81914211/130209853-9fe87a5f-f3c1-404d-
 | -------------------- | ------      | -------------------------|
 | name                 | string      | null: false              |
 
+### Association
+
+- has_many :room_facilities
+- has_many :rooms, through: :room_facilities, dependent: :destroy
+
 ## room_facilities テーブル
 
 | Column               | Type        | Options                  |
 | -------------------- | ------      | -------------------------|
 | room                 | references  | foreign_key: true        |
 | facility             | references  | foreign_key: true        |
+
+### Association
+
+- belongs_to :room
+- belongs_to :facility
+
+## reservations テーブル
+
+| Column               | Type   | Options                  |
+| -------------------- | ------ | ------------------------ |
+| start_date           | string | null: false              |
+| end_date             | string | null: false  unique:true |
+| person               | string | null: false              |
+| last_name            | string | null: false              |
+| first_name           | string | null: false              |
+| last_kana            | string | null: false              |
+| first_kana           | string | null: false              |
+| phone_number         | string | null: false              |
+| room                 |        | foreign_key: true        |
+| user                 |        | foreign_key: true        |
+
+### Association
+
+- belongs_to :user
+- belongs_to :room
+
+## chat_rooms テーブル
+
+| Column               | Type   | Options                  |
+| -------------------- | ------ | ------------------------ |
+| hotel                |        | foreign_key: true              |
+
+### Association
+
+- belongs_to :hotel
+- has_many :chat_messages
+
+## chat_messages テーブル
+
+| Column               | Type   | Options                  |
+| -------------------- | ------ | ------------------------ |
+| chat_room            |        | foreign_key: true        |
+| user                 |        | foreign_key: true        |
+| content              | text   |                          |
+
+### Association
+
+- belongs_to :user
+- belongs_to :chat_room
+
+
+## 今後の改善点
+- スマホでアクセスするユーザーのための全ページのレスポンシブ化
+- さらなる機能の追加(宿泊施設の地図の表示等)
+
